@@ -1,7 +1,18 @@
-import http from "http"
+import express from "express"
 
-const server = http.createServer((req,res)=>{
-          res.end("hello this is my first server")
+const app = express()
+const port =8000
+
+// app.[http method]("route",callback) 
+app.get("/",(req,res)=>{
+     res.send("hello")
 })
 
-server.listen(8000)
+app.get("/about",((req,res)=>{
+     res.send("about")
+}))
+
+app.listen(port,()=>{
+      console.log(`server is started at ${port}`);
+})  
+
